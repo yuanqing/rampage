@@ -56,9 +56,9 @@ var result = rampage(arr, 2, opts);
  */
 ```
 
-The `opts.preProcess` function [maps](http://en.wikipedia.org/wiki/Map_(higher-order_function)) over each slice of `arr`. (Each slice would have at most `numPerPage` number of items from `arr`.) This function takes the following arguments:
+The `opts.preProcess` function [maps](http://en.wikipedia.org/wiki/Map_(higher-order_function)) over each slice of `arr`. It takes the following arguments:
 
-1. `pageItems` &mdash; A slice of `arr`.
+1. `pageItems` &mdash; The current slice of `arr`, which would have at most `numPerPage` number of items.
 2. `pageNum` &mdash; The current page number. Page numbers start from `0`.
 3. `totalPages` &mdash; The total number of pages.
 
