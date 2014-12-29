@@ -1,6 +1,6 @@
 {
   "name": "rampage",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A generic way to split an array into pages, with optional callbacks to modify the structure of each page.",
   "author": "Lim Yuan Qing",
   "license": "MIT",
