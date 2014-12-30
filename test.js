@@ -1,7 +1,7 @@
 'use strict';
 
 var tape = require('tape');
-var rampage = require('..');
+var rampage = require('./');
 
 tape('check arguments', function(t) {
 
