@@ -2,9 +2,7 @@
 
 > A generic way to split an array into pages, with optional callbacks to modify the structure of each page.
 
-## API
-
-### rampage(arr, numPerPage [, opts])
+## Usage
 
 ```js
 var arr = [
@@ -20,6 +18,8 @@ rampage(arr, 2);
  * ]
  */
 ```
+
+Note that a new array is returned; the original `arr` is unchanged.
 
 Pass in `opts` if you want to create previous/next links or customise the structure of each page:
 
@@ -56,11 +56,19 @@ var result = rampage(arr, 2, opts);
  */
 ```
 
+## API
+
+### rampage(arr, numPerPage [, opts])
+
+Paginate `arr`, with each page having at most `numPerPage` elements. The original `arr` is unchanged.
+
 The `opts.preProcess` function [maps](http://en.wikipedia.org/wiki/Map_(higher-order_function)) over each slice of `arr`. It takes the following arguments:
 
 1. `pageItems` &mdash; The current slice of `arr`, which would have at most `numPerPage` number of items.
 2. `pageNum` &mdash; The current page number. Page numbers start from `0`.
 3. `totalPages` &mdash; The total number of pages.
+
+Note that `opts.preProcess` defaults to the identity function, ie. each page is the `pageItems` subarray.
 
 The `opts.postProcess` function maps over the result of `opts.preProcess`. It takes the following arguments:
 
