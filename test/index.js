@@ -1,23 +1,19 @@
 'use strict';
 
-var tape = require('tape');
-var rampage = require('./');
+var test = require('tape');
+var rampage = require('../');
 
-tape('check arguments', function(t) {
-
-  t.throws(function() {
-    rampage({});
-  }, 'need array');
+test('`numPerPage` must be a positive integer', function(t) {
 
   t.throws(function() {
     rampage(['foo'], 0);
-  }, 'need positive integer');
+  });
 
   t.end();
 
 });
 
-tape('no `opts`', function(t) {
+test('no `opts`', function(t) {
 
   var arr = [
     { foo: 'bar' },
@@ -45,7 +41,7 @@ tape('no `opts`', function(t) {
 
 });
 
-tape('with `opts`', function(t) {
+test('with `opts`', function(t) {
 
   var arr = [
     { foo: 'bar' },

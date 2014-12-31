@@ -1,7 +1,5 @@
 'use strict';
 
-var check = require('cheque');
-
 var identity = function(o) {
   return o;
 };
@@ -9,10 +7,7 @@ var identity = function(o) {
 var rampage = function(arr, numPerPage, opts) {
 
   // check arguments
-  if (!check.isArray(arr)) {
-    throw new Error('arr must be an array');
-  }
-  if (!check.isInteger(numPerPage) || numPerPage < 1) {
+  if (numPerPage < 1) {
     throw new Error('numPerPage must be a positive integer');
   }
 
@@ -30,7 +25,7 @@ var rampage = function(arr, numPerPage, opts) {
     pages.push(preProcess(arr.slice(i * numPerPage, (i + 1) * numPerPage), i, numPages));
   }
 
-  if (check.isFunction(postProcess)) {
+  if (typeof postProcess === 'function') {
     i = -1;
     while (++i < numPages) {
       // apply `postProcess` over each page in `pages`
