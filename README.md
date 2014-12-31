@@ -60,23 +60,23 @@ var result = rampage(arr, 2, opts);
 
 ### rampage(arr, numPerPage [, opts])
 
-Paginate `arr`, with each page having at most `numPerPage` elements. The original `arr` is unchanged.
+- `arr` &mdash; An array.
+- `numPerPage` &mdash; A positive integer.
+- `opts` &mdash; Used to define the `preProcess` and `preProcess` callbacks.
 
-The `opts.preProcess` function [maps](http://en.wikipedia.org/wiki/Map_(higher-order_function)) over each slice of `arr`. It takes the following arguments:
+  - `opts.preProcess` [maps](http://en.wikipedia.org/wiki/Map_(higher-order_function)) over each slice of `arr`. It defaults to the identity function, and takes the following arguments:
 
-1. `pageItems` &mdash; The current slice of `arr`, which would have at most `numPerPage` number of items.
-2. `pageNum` &mdash; The current page number. Page numbers start from `0`.
-3. `totalPages` &mdash; The total number of pages.
+    1. `pageItems` &mdash; The current slice of `arr`, which would have at most `numPerPage` number of items.
+    2. `pageNum` &mdash; The current page number. Page numbers start from `0`.
+    3. `totalPages` &mdash; The total number of pages.
 
-Note that `opts.preProcess` defaults to the identity function, ie. each page is the `pageItems` subarray.
+  - `opts.postProcess` maps over the result of `opts.preProcess`. It takes the following arguments:
 
-The `opts.postProcess` function maps over the result of `opts.preProcess`. It takes the following arguments:
-
-1. `currPage` &mdash; The current page.
-2. `prevPage` &mdash; A reference to the previous page, or `undefined` if there is no previous page.
-3. `nextPage` &mdash; A reference to the next page, or `undefined` if there is no next page.
-4. `pageNum` &mdash; The current page number. Page numbers start from `0`.
-5. `totalPages` &mdash; The total number of pages.
+    1. `currPage` &mdash; The current page.
+    2. `prevPage` &mdash; A reference to the previous page, or `undefined` if there is no previous page.
+    3. `nextPage` &mdash; A reference to the next page, or `undefined` if there is no next page.
+    4. `pageNum` &mdash; The current page number. Page numbers start from `0`.
+    5. `totalPages` &mdash; The total number of pages.
 
 ## Installation
 
