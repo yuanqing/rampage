@@ -1,7 +1,7 @@
 /* jshint unused: false */
 'use strict';
 
-var rampage = require('./');
+var rampage = require('../');
 
 var arr = [
   { foo: 'bar' },
