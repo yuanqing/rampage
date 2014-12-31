@@ -23,6 +23,12 @@ test('no `opts`', function(t) {
 
   var pages = rampage(arr, 2);
 
+  t.looseEquals(arr, [
+    { foo: 'bar' },
+    { foo: 'baz' },
+    { foo: 'qux' }
+  ], 'the original `arr` is unchanged');
+
   t.equals(pages.length, 2);
 
   t.looseEquals(pages[0], [
@@ -71,6 +77,12 @@ test('with `opts`', function(t) {
   };
 
   var pages = rampage(arr, 2, opts);
+
+  t.looseEquals(arr, [
+    { foo: 'bar' },
+    { foo: 'baz' },
+    { foo: 'qux' }
+  ], 'the original `arr` is unchanged');
 
   t.equals(pages.length, 2);
 
